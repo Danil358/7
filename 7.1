@@ -1,0 +1,34 @@
+﻿using System;
+using System.Linq;
+
+public class ArrayOperations
+{
+    public static void SortAscending(int[] arr)
+    {
+        Array.Sort(arr);
+        Console.WriteLine("Отсортированный массив (по возрастанию): " + string.Join(", ", arr));
+    }
+    public static void SortDescending(int[] arr)
+    {
+        Array.Sort(arr);
+        Array.Reverse(arr); 
+        Console.WriteLine("Отсортированный массив (по убыванию): " + string.Join(", ", arr));
+    }
+    public static int[] ConcatenateArrays(int[] arr1, int[] arr2)
+    {
+        return arr1.Concat(arr2).ToArray();
+    }
+    public static void Main(string[] args)
+    {
+        int[] array1 = { 15, 22, 48, 11, 29, 14 };
+        int[] array2 = { 37, 13, 26 };
+
+        Console.WriteLine("Исходный массив 1: " + string.Join(", ", array1));
+        Console.WriteLine("Исходный массив 2: " + string.Join(", ", array2));
+
+        SortAscending(array1);
+        SortDescending(array1);
+        int[] mergedArray = ConcatenateArrays(array1, array2);
+        Console.WriteLine("Объединенный массив: " + string.Join(", ", mergedArray));
+    }
+}
